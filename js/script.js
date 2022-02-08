@@ -1,9 +1,9 @@
 'use strict'
 
 //! Exercise 1
-// let Tc = prompt('Введите температуру');
-// let Tf = (9 / 5) * Tc + 32;
-// alert(Tf);
+let Tc = prompt('Введите температуру');
+let Tf = (9 / 5) * Tc + 32;
+alert(Tf);
 
 //! Exercise 2
 let name = 'Василий';
