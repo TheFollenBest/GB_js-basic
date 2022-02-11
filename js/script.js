@@ -1,62 +1,116 @@
 'use strict'
 
-//! Exercise 1
-let Tc = prompt('Введите температуру');
-let Tf = (9 / 5) * Tc + 32;
-alert(Tf);
+// Exercise 1
+function Exercise_1(){
+    //пример 1
+    let a = 1, b = 1, c, d;
+    c = ++a; // значение "a" увеличится на один, потом запишется в "c"
+    alert(c); // ответ: 2
+    //пример 2
+    d = b++; // значение "b" запишется в "d", потом увеличится на один
+    alert(d); //ответ: 1
+    //пример 3
+    c = 2 + ++a; // в примере 1 "a" увеличилась на один, затем в примере 3 снова увеличилась на один и складывается с 2
+    alert(c); //ответ: 5
+    //пример 4
+    d = 2 + b++; // в примере 2 "b" увеличилась на один, затем в примере 4 сначала идет сложение 2 + b, потом результат увеличивается на один
+    alert(d); //ответ: 4
+    alert(a); //3
+    alert(b); //3
+}
+Exercise_1();
 
-//! Exercise 2
-let name = 'Василий';
-let admin = name;
-console.log(admin);
+// Exercise 2
+function Exercise_2(){
+    /* 
+    1. К переменной "a" присваивается 2
+    2. Переменная "a" умножается на 2
+    3. Затем идет сложение. Ответ 5
+    */
+    let a = 2;
+    let x = 1 + (a *= 2); // Ответ 5
+}
+Exercise_2();
 
-//! Exercise 3
+// Exercise 3
+function Exercise_3(){
+    let a = +prompt('Введите число a');
+    let b = +prompt('Введите число b');
+ 
+    if(a >= 0 && b >= 0){
+        alert(a - b);
+    }
+    else if(a < 0 && b < 0){
+        alert(a * b);
+    }
+    else{
+        alert(a + b);
+    }
+}
+Exercise_3();
 
-/*
-1. Идет складывание первых двух чисел 10
-2. Третье число является текстом
-3. Получается при сложении происходит конкатенация, т.е. к 20 приклеивается 10
-4. Итог выражения 2010, и присваивается к переменной a
-5. Переменная a выводится в консоль через console.log
-*/
-let a = 10 + 10 + "10";
-console.log(a);
+// Exercise 4
+function Exercise_4(){
+    let a = +prompt('Введите число a');
+    let b = +prompt('Введите число b');
 
-/*
-1. Складываются числа 10
-2. Второе число является строкой
-3. Итог выражения 101010, и присваивается к переменной b
-4. Переменная b выводится в консоль через console.log
-*/
-let b = 10 + "10" + 10;
-console.log(b);
+    function addition(a, b){
+        return a + b;
+    }
+    alert(addition(a, b));
 
-/*
-1. Складываются первые два числа 10, получается 20
-2. Третье число "10" являющееся строкой преобразуется в числовое значение благодаря унарному плюсу
-3. Итог выражения 30, и присваивается к переменной c
-4. Переменная c выводится в консоль через console.log
-*/
-let c = 10 + 10 + +"10";
-console.log(c);
+    function subtraction(a, b){
+        return a - b;
+    }
+    alert(subtraction(a, b));
 
-/*
-1. Делитель является нулевым значением
-2. Унарный минус преобразует строку в число и в отрицательное значение, получается -0
-3. Итог выражения -бесконечность, и присваивается к переменной d
-4. Переменная d выводится в консоль через console.log
-*/
-let d = 10 / -"";
-console.log(d);
+    function multiplication(a, b){
+        return a * b;
+    }
+    alert(multiplication(a, b));
+    
+    function division(a, b){
+        return a / b;
+    }
+    alert(division(a, b));
+}
+Exercise_4();
 
-/*
-1. Делитель является строкой
-2. Унарный плюс пытается преобразовать строку в число, но это не происходит
-3. "2,5" не является дробным значением поскольку дробные значения записываются с использованием точки, а не запятой
-4. Как итог унарный плюс не может преобразовать строку в число, поскольку в строке записана не дробь
-5. Соответственно делитель становится NaN, т.е. не является числом
-5. Итог выражения NaN, поскольку 10 не может делиться на "не число"
-6. Выражению присваивается переменная e и выводится через консоль через console.log
-*/
-let e = 10 / +"2,5";
-console.log(e);
+// Exercise 5
+function Exercise_5(){
+    let a = +prompt('Введите число a');
+    let b = +prompt('Введите число b');
+    let operation = prompt('Введите операцию');
+
+    function addition(a, b){
+        return a + b;
+    }
+
+    function subtraction(a, b){
+        return a - b;
+    }
+
+    function multiplication(a, b){
+        return a * b;
+    }
+    
+    function division(a, b){
+        return a / b;
+    }
+    function mathOperation(arg1, arg2, operation){
+        switch (operation) {
+            case "+":
+                return addition(arg1, arg2);
+            case "-":
+                return subtraction(arg1, arg2);
+            case "*":
+                return multiplication(arg1, arg2);
+            case "/":
+                return division(arg1, arg2);
+            default:
+                throw new Error('Операция ' + operation + ' не существует')
+        }
+    }
+    alert(mathOperation(a, b, operation));
+}
+Exercise_5();
