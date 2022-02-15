@@ -1,116 +1,118 @@
-'use strict'
+'use strict';
 
 // Exercise 1
-function Exercise_1(){
-    //пример 1
-    let a = 1, b = 1, c, d;
-    c = ++a; // значение "a" увеличится на один, потом запишется в "c"
-    alert(c); // ответ: 2
-    //пример 2
-    d = b++; // значение "b" запишется в "d", потом увеличится на один
-    alert(d); //ответ: 1
-    //пример 3
-    c = 2 + ++a; // в примере 1 "a" увеличилась на один, затем в примере 3 снова увеличилась на один и складывается с 2
-    alert(c); //ответ: 5
-    //пример 4
-    d = 2 + b++; // в примере 2 "b" увеличилась на один, затем в примере 4 сначала идет сложение 2 + b, потом результат увеличивается на один
-    alert(d); //ответ: 4
-    alert(a); //3
-    alert(b); //3
+function Exercise_1() {
+    for (let i = 0; i <= 10; i++) {
+        if (i == 0) {
+            console.log(i + ' это ноль');
+        } else if (i % 2 == 0) {
+            console.log(i + ' четное число');
+        } else {
+            console.log(i + ' нечетное число');
+        }
+    }
 }
 Exercise_1();
 
 // Exercise 2
-function Exercise_2(){
-    /* 
-    1. К переменной "a" присваивается 2
-    2. Переменная "a" умножается на 2
-    3. Затем идет сложение. Ответ 5
-    */
-    let a = 2;
-    let x = 1 + (a *= 2); // Ответ 5
+function Exercise_2() {
+    const post = {
+        author: "John", //вывести этот текст
+        postId: 23,
+        comments: [{
+                userId: 10,
+                userName: "Alex",
+                text: "lorem ipsum",
+                rating: {
+                    likes: 10,
+                    dislikes: 2 //вывести это число
+                }
+            },
+            {
+                userId: 5, //вывести это число
+                userName: "Jane",
+                text: "lorem ipsum 2", //вывести этот текст
+                rating: {
+                    likes: 3,
+                    dislikes: 1
+                }
+            },
+        ]
+    };
+
+    console.log(post.author);
+    console.log(post.comments[0].rating.dislikes);
+    console.log(post.comments[1].userId);
+    console.log(post.comments[1].text);
 }
 Exercise_2();
 
 // Exercise 3
-function Exercise_3(){
-    let a = +prompt('Введите число a');
-    let b = +prompt('Введите число b');
- 
-    if(a >= 0 && b >= 0){
-        alert(a - b);
-    }
-    else if(a < 0 && b < 0){
-        alert(a * b);
-    }
-    else{
-        alert(a + b);
-    }
+function Exercise_3() {
+    const products = [{
+            id: 3,
+            price: 200,
+        },
+        {
+            id: 4,
+            price: 900,
+        },
+        {
+            id: 1,
+            price: 1000,
+        },
+    ];
+
+    products.forEach(element => {
+        element.price = element.price - element.price * 0.15
+    })
+
+    console.log(products);
 }
 Exercise_3();
 
 // Exercise 4
-function Exercise_4(){
-    let a = +prompt('Введите число a');
-    let b = +prompt('Введите число b');
+function Exercise_4() {
+    const products = [{
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: []
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
 
-    function addition(a, b){
-        return a + b;
-    }
-    alert(addition(a, b));
+    const productsPhotos = products.filter(element => 'photos' in element && element.photos != ''); // или 'photos' in element && element.photos.length > 0
+    console.log(productsPhotos);
 
-    function subtraction(a, b){
-        return a - b;
-    }
-    alert(subtraction(a, b));
-
-    function multiplication(a, b){
-        return a * b;
-    }
-    alert(multiplication(a, b));
-    
-    function division(a, b){
-        return a / b;
-    }
-    alert(division(a, b));
+    const productsPrice = products.sort(function(prod1, prod2){
+        return prod1.price - prod2.price;
+    })
+    console.log(productsPrice);
 }
 Exercise_4();
 
-// Exercise 5
-function Exercise_5(){
-    let a = +prompt('Введите число a');
-    let b = +prompt('Введите число b');
-    let operation = prompt('Введите операцию');
-
-    function addition(a, b){
-        return a + b;
+// Exercise 6
+function Exercise_6() {
+    for(let i = 'x'; i.length <= 20; i += 'x'){
+        console.log(i);
     }
-
-    function subtraction(a, b){
-        return a - b;
-    }
-
-    function multiplication(a, b){
-        return a * b;
-    }
-    
-    function division(a, b){
-        return a / b;
-    }
-    function mathOperation(arg1, arg2, operation){
-        switch (operation) {
-            case "+":
-                return addition(arg1, arg2);
-            case "-":
-                return subtraction(arg1, arg2);
-            case "*":
-                return multiplication(arg1, arg2);
-            case "/":
-                return division(arg1, arg2);
-            default:
-                throw new Error('Операция ' + operation + ' не существует')
-        }
-    }
-    alert(mathOperation(a, b, operation));
 }
-Exercise_5();
+Exercise_6();
