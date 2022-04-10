@@ -22,18 +22,6 @@ Exercise_1();
 
 // Exercise 2
 function Exercise_2(){
-    /* 
-    1. К переменной "a" присваивается 2
-    2. Переменная "a" умножается на 2
-    3. Затем идет сложение. Ответ 5
-    */
-    let a = 2;
-    let x = 1 + (a *= 2); // Ответ 5
-}
-Exercise_2();
-
-// Exercise 3
-function Exercise_3(){
     let a = +prompt('Введите число a');
     let b = +prompt('Введите число b');
  
@@ -47,10 +35,10 @@ function Exercise_3(){
         alert(a + b);
     }
 }
-Exercise_3();
+Exercise_2();
 
-// Exercise 4
-function Exercise_4(){
+// Exercise 3
+function Exercise_3(){
     let a = +prompt('Введите число a');
     let b = +prompt('Введите число b');
 
@@ -74,10 +62,10 @@ function Exercise_4(){
     }
     alert(division(a, b));
 }
-Exercise_4();
+Exercise_3();
 
-// Exercise 5
-function Exercise_5(){
+// Exercise 4
+function Exercise_4(){
     let a = +prompt('Введите число a');
     let b = +prompt('Введите число b');
     let operation = prompt('Введите операцию');
@@ -113,4 +101,4 @@ function Exercise_5(){
     }
     alert(mathOperation(a, b, operation));
 }
-Exercise_5();
+Exercise_4();
